@@ -12,15 +12,15 @@ const DB_url = process.env.DATABASE_URL;
 // below is a way to handle TS if we 100% know that DATABASE_URL is a string, similar to ts-ignore
 //const DB_url = process.env.DATABASE_URL as string; 
 //@ts-ignore : another way to ignore TS errors
-/*app.use(cors({
-    origin: ["http://localhost:5173/"],    //defined the frontend url through which requests will be made
+
+// app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:5173"],    //defined the frontend url through which requests will be made
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],    //only allows these requests from the above origin frontend url
     credentials: true    //to enable cookies
 }));
-*/
-app.use(cors());
-app.use(cookieParser());
 app.use(express.json());
+app.use(cookieParser());
 app.use("/api/auth", authRouter);
 
 
